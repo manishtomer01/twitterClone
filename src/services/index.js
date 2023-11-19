@@ -3,3 +3,4 @@
 // };
 
 export { default as TweetService } from "./tweet_service.js";
+export { default as LikeService } from "./like_service.js";

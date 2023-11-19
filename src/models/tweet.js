@@ -18,10 +18,16 @@ const tweetSchema = new mongoose.Schema(
     //     ref: "Comment",
     //   },
     // ],
-    hashtags: [
+    // hashtags: [
+    //   {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: "Hashtag",
+    //   },
+    // ],
+    likes: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Hashtag",
+        ref: "Like",
       },
     ],
   },
