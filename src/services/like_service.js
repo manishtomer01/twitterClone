@@ -8,11 +8,8 @@ class LikeService {
 
   async toggleLike(modelId, modelType, userId) {
     // /api/v1/likes/toggle?id=modelid&type=Tweet
-    // console.log("modelId >>>", modelId);
     if (modelType == "Tweet") {
       var likeable = await this.tweetRepository.find(modelId);
-      // .populate({ path: "likes" });
-      // console.log("likeable :____>>", likeable);
     } else if (modelType == "Comment") {
       // TODO
     } else {
@@ -23,7 +20,6 @@ class LikeService {
       onModel: modelType,
       likeable: modelId,
     });
-    console.log("exists______>>", exists);
     if (exists) {
       likeable.likes.pull(exists.id);
       await likeable.save();
@@ -37,7 +33,6 @@ class LikeService {
       });
       likeable.likes.push(newLike);
       await likeable.save();
-
       var isAdded = true;
     }
     return isAdded;
