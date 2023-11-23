@@ -1,5 +1,3 @@
-// const { TweetRepository, HashtagRepository } = require("../repository");
-
 import { TweetRepository, HashtagRepository } from "../repository/index.js";
 
 class TweetService {
@@ -31,7 +29,11 @@ class TweetService {
     });
     return tweet;
   }
+
+  async get(tweetId) {
+    const tweet = await this.tweetRepository.getWithComments(tweetId);
+    return tweet;
+  }
 }
 
-// module.exports = TweetService;
 export default TweetService;

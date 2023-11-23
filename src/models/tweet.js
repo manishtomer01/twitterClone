@@ -1,4 +1,3 @@
-// const mongoose = require("mongoose");
 import mongoose from "mongoose";
 
 const tweetSchema = new mongoose.Schema(
@@ -30,6 +29,12 @@ const tweetSchema = new mongoose.Schema(
         ref: "Like",
       },
     ],
+    comments: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Comment",
+      },
+    ],
   },
   { timestamps: true }
 );
@@ -45,5 +50,4 @@ const tweetSchema = new mongoose.Schema(
 // });
 
 const Tweet = mongoose.model("Tweet", tweetSchema);
-// module.exports = Tweet;
 export default Tweet;
